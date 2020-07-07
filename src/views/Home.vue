@@ -97,7 +97,8 @@ button {
       position: fixed;
       bottom: 0;
       width: 100%;
-      height: 60vh;
+      height: calc(60vh + 84px);
+      margin-bottom: -84px;
       left: 0;
     }
   }
