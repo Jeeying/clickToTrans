@@ -82,6 +82,12 @@ button {
   }
 }
 @media (max-width: 760px) {
+  button {
+    position: fixed;
+    bottom: 60.3vh;
+    z-index: 1;
+    right: 0;
+  }
   .home {
     .english-text {
       flex: auto;
