@@ -67,18 +67,24 @@ button {
 }
 .home {
   position: relative;
-  display: flex;
+  // display: flex;
   .english-text {
-    flex: 0.61;
+    // flex: 0.61;
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
       monospace;
     font-size: 1rem;
     line-height: 1.4;
     padding: 0.5rem;
+    padding-right: 60vh;
   }
   iframe {
-    flex: 0.39;
+    // flex: 0.39;
     background-color: #fff;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: calc(100vh + 104px);
+    margin-bottom: -104px;
   }
 }
 @media (max-width: 760px) {
@@ -90,7 +96,7 @@ button {
   }
   .home {
     .english-text {
-      flex: auto;
+      // flex: auto;
       padding-bottom: 60vh;
     }
     iframe {
