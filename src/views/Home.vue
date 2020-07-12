@@ -73,7 +73,7 @@ button {
     font-size: 1rem;
     line-height: 1.4;
     padding: 0.5rem;
-    padding-right: 60vw;
+    padding-right: 40vw;
   }
   iframe {
     background-color: #fff;
