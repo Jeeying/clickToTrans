@@ -67,20 +67,18 @@ button {
 }
 .home {
   position: relative;
-  // display: flex;
   .english-text {
-    // flex: 0.61;
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
       monospace;
     font-size: 1rem;
     line-height: 1.4;
     padding: 0.5rem;
-    padding-right: 60vh;
+    padding-right: 60vw;
   }
   iframe {
-    // flex: 0.39;
     background-color: #fff;
     position: fixed;
+    width: 39vw;
     right: 0;
     top: 0;
     height: calc(100vh + 104px);
@@ -96,13 +94,15 @@ button {
   }
   .home {
     .english-text {
-      // flex: auto;
+      padding-right: 0px;
       padding-bottom: 60vh;
     }
     iframe {
       position: fixed;
+      top: auto;
+      right: auto;
       bottom: 0;
-      width: 100%;
+      width: 100vw;
       height: calc(60vh + 108px);
       margin-bottom: -108px;
       left: 0;
