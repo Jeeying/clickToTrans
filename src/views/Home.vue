@@ -1,7 +1,18 @@
 <template>
   <div>
     <div id="nav">
-      <button @click="toggleLang()">切換英語詞典/英漢詞典</button>
+      <button
+        :class="urlTarget === '' ? 'active':''"
+        @click="toggleLang()"
+      >切換{{langs[langTarget]}}詞典</button> |
+      <button
+        :class="urlTarget === 'dict' ? 'active':''"
+        @click="changeUrl('dict')"
+      >英漢字典</button> |
+      <button
+        :class="urlTarget === 'naer' ? 'active':''"
+        @click="changeUrl('naer')"
+      >國家教育研究院</button>
     </div>
     <div class="home">
       <div class="english-text">
@@ -38,6 +49,11 @@ export default {
         zh: '英語-漢語-繁體',
         en: '英語',
       },
+      urlTarget: '',
+      url: {
+        dict: 'https://cdict.net/?q=',
+        naer: 'http://terms.naer.edu.tw/search/?q=',
+      },
     };
   },
   computed: {
@@ -48,13 +64,24 @@ export default {
   methods: {
     toggleLang() {
       this.langTarget = this.langTarget === 'zh' ? 'en' : 'zh';
+      this.urlTarget = '';
     },
-    search(text) {
+    changeUrl(target) {
+      this.urlTarget = target;
+    },
+    search(t) {
+      const text = t.replace(/\s/g, '+');
       const iframe = document.getElementsByTagName('iframe')[0];
       const url = 'https://dictionary.cambridge.org';
       const pos = 'zht';
       const dict = '詞典';
-      iframe.src = `${url}/${pos}/${dict}/${this.langs[this.langTarget]}/${text}`;
+      if (this.urlTarget === 'dict') {
+        iframe.src = `${this.url[this.urlTarget]}${text}`;
+      } else if (this.urlTarget === 'naer') {
+        iframe.src = `${this.url[this.urlTarget]}"${text}"`;
+      } else {
+        iframe.src = `${url}/${pos}/${dict}/${this.langs[this.langTarget]}/${text}`;
+      }
     },
   },
 };
@@ -64,6 +91,9 @@ button {
   display: inline-block;
   padding: 0.2rem 0.5rem;
   background-color: #ccc;
+}
+button.active {
+  background-color: #f5f5f5;
 }
 .home {
   position: relative;
@@ -86,7 +116,7 @@ button {
   }
 }
 @media (max-width: 760px) {
-  button {
+  #nav {
     position: fixed;
     bottom: 60.3vh;
     z-index: 1;

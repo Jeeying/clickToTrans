@@ -2,9 +2,67 @@ const english = {
   '': [
 
   ],
+  '7/10': [
+    'magnitude',
+    'neutrino',
+    'nuclear fusion', // 核聚變
+    'obliquity', // 斜度，傾斜
+    'Paleozoic era', // 古生代
+    'era',
+  ],
   '7/9': [
     'configuration',
     'accretion',
+    'Alpha Centaurus',
+    'angstrom',
+    'asteroid',
+    'atmosphere',
+    'aurora',
+    'basalt',
+    'bolide',
+    'bow shock',
+    'breccia',
+    'calcium',
+    'caldera',
+    'carbonate',
+    'chromosphere',
+    'cinder',
+    'cinder cone',
+    'cone',
+    'coma',
+    'composite volcano',
+    'volcano',
+    'cosmos',
+    'cosmic ray',
+    'cosmic',
+    'craton',
+    'cretaceous period',
+    'Cretaceous',
+    'dielectric constant',
+    'Doppler Effect',
+    'eccentricity', // 偏心率；離心率
+    'ecliptic', // 黃道
+    'ellipse',
+    'fissure',
+    'flare',
+    'granulation',
+    'gravity',
+    'gravitation',
+    'gravitational collapse',
+    'heliocentric', // 以太陽為中心的
+    'hummock',
+    'igneous',
+    'inclination',
+    'inferior',
+    'inferior planet',
+    'ion',
+    'lava',
+    'light year',
+    'magma',
+    'magnetic field',
+    'magnetic',
+    'magnetosphere', // 磁性層
+
   ],
   '7/8': [
     'whirl',
