@@ -95,6 +95,11 @@ button {
 button.active {
   background-color: #f5f5f5;
 }
+a:hover,
+a:active,
+a:focus {
+  color: #53ff91;
+}
 .home {
   position: relative;
   .english-text {
