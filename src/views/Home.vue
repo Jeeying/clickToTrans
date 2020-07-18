@@ -50,7 +50,7 @@ export default {
       englishUrl: {
         deepl: 'https://cn.linguee.com/中文-英语/search?source=英语&query={text}',
         dict: 'https://cdict.net/?q={text}',
-        naer: 'http://terms.naer.edu.tw/search/?q="{text}"',
+        naer: 'http://terms.naer.edu.tw/search/?q={text}',
         cambZh: 'https://dictionary.cambridge.org/zht/詞典/英語-漢語-繁體/{text}',
         cambEn: 'https://dictionary.cambridge.org/zht/詞典/英語/{text}',
       },
