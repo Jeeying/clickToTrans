@@ -1,18 +1,13 @@
 <template>
   <div>
     <div id="nav">
-      <button
-        :class="urlTarget === '' ? 'active':''"
-        @click="toggleLang()"
-      >切換{{langs[langTarget]}}詞典</button> |
-      <button
-        :class="urlTarget === 'dict' ? 'active':''"
-        @click="changeUrl('dict')"
-      >英漢字典</button> |
-      <button
-        :class="urlTarget === 'naer' ? 'active':''"
-        @click="changeUrl('naer')"
-      >國家教育研究院</button>
+      <select v-model="selected">
+        <option
+          v-for="(item, idx) in list"
+          :key="`dictList${idx}`"
+          :value="item.value"
+        >{{item.label}}</option>
+      </select>
     </div>
     <div class="home">
       <div class="english-text">
@@ -44,15 +39,20 @@ export default {
   data() {
     return {
       english,
-      langTarget: 'zh',
-      langs: {
-        zh: '英語-漢語-繁體',
-        en: '英語',
-      },
-      urlTarget: '',
-      url: {
-        dict: 'https://cdict.net/?q=',
-        naer: 'http://terms.naer.edu.tw/search/?q=',
+      selected: 'cambZh',
+      list: [
+        { label: 'cambridge 中文', value: 'cambZh' },
+        { label: 'cambridge 英文', value: 'cambEn' },
+        { label: 'DeepL', value: 'deepl' },
+        { label: '英漢字典', value: 'dict' },
+        { label: '國家教育研究院', value: 'naer' },
+      ],
+      englishUrl: {
+        deepl: 'https://cn.linguee.com/中文-英语/search?source=英语&query={text}',
+        dict: 'https://cdict.net/?q={text}',
+        naer: 'http://terms.naer.edu.tw/search/?q="{text}"',
+        cambZh: 'https://dictionary.cambridge.org/zht/詞典/英語-漢語-繁體/{text}',
+        cambEn: 'https://dictionary.cambridge.org/zht/詞典/英語/{text}',
       },
     };
   },
@@ -62,39 +62,16 @@ export default {
     },
   },
   methods: {
-    toggleLang() {
-      this.langTarget = this.langTarget === 'zh' ? 'en' : 'zh';
-      this.urlTarget = '';
-    },
-    changeUrl(target) {
-      this.urlTarget = target;
-    },
     search(t) {
       const text = t.replace(/\s/g, '+');
       const iframe = document.getElementsByTagName('iframe')[0];
-      const url = 'https://dictionary.cambridge.org';
-      const pos = 'zht';
-      const dict = '詞典';
-      if (this.urlTarget === 'dict') {
-        iframe.src = `${this.url[this.urlTarget]}${text}`;
-      } else if (this.urlTarget === 'naer') {
-        iframe.src = `${this.url[this.urlTarget]}"${text}"`;
-      } else {
-        iframe.src = `${url}/${pos}/${dict}/${this.langs[this.langTarget]}/${text}`;
-      }
+      const url = this.englishUrl[this.selected].replace(/\{text\}/g, text);
+      iframe.src = url;
     },
   },
 };
 </script>
 <style lang="scss">
-button {
-  display: inline-block;
-  padding: 0.2rem 0.5rem;
-  background-color: #ccc;
-}
-button.active {
-  background-color: #f5f5f5;
-}
 a:hover,
 a:active,
 a:focus {
@@ -144,12 +121,4 @@ a:focus {
     }
   }
 }
-
-// .wrapper.mobile iframe {
-//   position: fixed;
-//   bottom: 0;
-//   width: 100%;
-//   height: 60vh;
-//   left: 0;
-// }
 </style>

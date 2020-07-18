@@ -8,6 +8,7 @@ const english = {
     'nuclear fusion', // 核聚變
     'obliquity', // 斜度，傾斜
     'Paleozoic era', // 古生代
+    'Paleozoic',
     'era',
   ],
   '7/9': [
@@ -31,6 +32,7 @@ const english = {
     'cone',
     'coma',
     'composite volcano',
+    'composite',
     'volcano',
     'cosmos',
     'cosmic ray',
