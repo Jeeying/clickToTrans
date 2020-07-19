@@ -97,7 +97,7 @@ a:focus {
     margin-bottom: -104px;
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 910px) {
   #nav {
     position: fixed;
     bottom: 60.3vh;
