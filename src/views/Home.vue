@@ -11,10 +11,10 @@
     </div>
     <div class="home">
       <div class="english-text">
-        <div v-for="day in englishKey" :key="day">
+        <div v-for="(day, idx) in englishKey" :key="`${day}${idx}`">
           <p>{{day}}</p>
-          <template v-for="e in english[day]">
-            <a :key="e" @click.prevent="search(e)">{{e}}</a>,
+          <template v-for="(e, idxE) in english[day]">
+            <a :key="`${e}${idxE}`" @click.prevent="search(e)">{{e}}</a>,
           </template>
           <p>
             <br />
